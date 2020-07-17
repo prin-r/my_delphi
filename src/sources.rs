@@ -1,5 +1,6 @@
 //! Data sources
 
+pub mod band;
 pub mod coinone;
 pub mod gdac;
 pub mod gopax;
