@@ -1,6 +1,7 @@
 //! Exchange rate denominations
 
 use crate::error::Error;
+use crate::sources::band::*;
 use std::fmt::{self, Display};
 use stdtx::Decimal;
 
@@ -39,7 +40,12 @@ impl Denom {
     /// Get the exchange rate for this [`Denom`]
     pub async fn get_exchange_rate(self) -> Result<Decimal, Error> {
         // TODO(tarcieri): compute non-abstain votes for each denom
-        Ok(Decimal::from(-1i8))
+        let x = BandSource::new(1, "0000000442414e4400000000000f4240".into(), 4, 4);
+        match x.request_data().await {
+            Ok(y) => Ok(Decimal::from(y)),
+            Err(_z) => Ok(Decimal::from(-1i8)),
+        }
+        // Ok(Decimal::from(-1i8))
     }
 }
 
