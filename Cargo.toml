@@ -30,7 +30,7 @@ subtle-encoding = "0.5"
 thiserror = "1"
 tokio = "0.2"
 warp = "0.2"
-base64 = "0.12.3"
+base64 = "0.21.0"
 obi = "0.0.1"
 
 [dev-dependencies]
